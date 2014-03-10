@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title> Daniel Pink's Website</title>
+
+      <!-- Bootstrap core CSS -->
+      <link href="/css/bootstrap.css" rel="stylesheet">
+
+      <!-- Custom styles for this template -->
+      <link href="/css/starter-template.css" rel="stylesheet">
+
+      <!-- Just for debugging purposes. Don't actually copy this line! -->
+      <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+  </head>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">danielpi</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container">
+	<div class="starter-template">
+		<div id="home">
+			<h2>Commercial Trial Videos</h2>
+			<p class="meta">08 Mar 2014</p>
+			<div class="post">
+				<h1>Video from the trial against Commercial</h1>
+<p>We managed to get some video from the trial match against Commercial. Due to technical difficulties we only got the last 6min of the first half and about half of the second half. I've put links to the videos at the bottom of this post. I've picked out a few specific bits that are worth discussing. By default the videos show up at a low resolution but if you click on the gear you can get a higher resolution that is much better to view.</p>
+
+<p>This first clip shows a Commercial long corner. This shows a pattern that Commercial use a lot. Their center half lead out towards our inside forward. This drags Sam out of the center and allows their inside to lead into the space left behind. Sam reads the pass this time which is why they didn't get a shot but this is one of the ways in which Commercial are able to get extra, unmarked players into dangerous positions. At the start of this movement Andrew, Ian and Sam are marking Commercials inside and center half. By the end Commercial have an unmarked player on the top of our circle and Andrew and Ian are not marking anybody.</p>
+<p><div id="player0"></div></p>
+
+<p>This clip shows one of Commercials goals. </p>
+<ul>
+	<li>Lots of unmarked players</li>
+	<li>Lack of urgency in defence</li>
+	<li>Poor organisation from the back.</li>
+	<li>Commercial use a one, two to get past Sam</li>
+	<li>The same two players use a one, two to get past Hawley</li>
+</ul>
+<p><div id="player1"></div></p>
+
+<h3>Complete Videos</h3>
+<p>The last 6 minutes of the first half.</p>
+<iframe width="640" height="360" src="//www.youtube.com/embed/goboe_c8tao?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<p>A corner in the first half</p>
+<iframe width="640" height="360" src="//www.youtube.com/embed/BVzo8Rsp--A?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<p>Start of the second half</p>
+<iframe width="640" height="360" src="//www.youtube.com/embed/ibVd1wp_Xn8?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<p>More from the second half</p>
+<iframe width="640" height="360" src="//www.youtube.com/embed/ARg6oECBJAU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+<script>
+	var playerInfoList =  [{index:0,id:'player0',height:'390',width:'640',videoId:'goboe_c8tao',startTime:'60',duration:'6',url:'https://www.youtube.com/watch?v=goboe_c8tao'},
+{index:1,id:'player1',height:'390',width:'640',videoId:'goboe_c8tao',startTime:'135',duration:'15',url:'https://www.youtube.com/watch?v=goboe_c8tao'},
+];
+
+	var tag = document.createElement('script');
+	tag.src = "http://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	
+	var players = [];
+	function onYouTubeIframeAPIReady() {
+		if(typeof playerInfoList === 'undefined')
+			return; 
+		
+		//players[0] = createPlayer(playerInfoList[0]);
+		//players[1] = createPlayer(playerInfoList[1]);
+		for(var i = 0; i < playerInfoList.length;i++) {
+			players[i] = createPlayer(playerInfoList[i]);
+		}   
+	}
+	
+	function createPlayer(playerInfo) {
+		//setTimeout(function () { loopVideo(playerInfo); }, playerInfo.duration*1000);
+		return new YT.Player(playerInfo.id, {
+			height: playerInfo.height,
+			width: playerInfo.width,
+			videoId: playerInfo.videoId,
+			events: {'onReady': onPlayerReady,
+					 'onStateChange': onPlayerStateChange}
+		});
+	}
+
+	function onPlayerReady(event) {
+		//console.log(event.target.a.id);
+		var divId = event.target.a.id;
+		var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+		// console.log(result);
+		var start = result[0].startTime;
+		event.target.seekTo(start, true);
+		//event.target.playVideo();
+		event.target.pauseVideo();
+	}
+	
+    function onPlayerStateChange(event) {
+	  	if (event.data == YT.PlayerState.PLAYING) {
+			var divId = event.target.a.id;
+			var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+			var duration = result[0].duration;
+		  	setTimeout(function () { loopVideo(event); }, duration*1000);
+      	}
+    }
+	
+    function loopVideo(event) {
+		var divId = event.target.a.id;
+		var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+		var duration = result[0].duration;
+		var start = result[0].startTime;
+		if (event.data == YT.PlayerState.PLAYING) {
+  	  		setTimeout(function () { loopVideo(event); }, duration*1000);
+	  		event.target.seekTo(start, true);
+  	  		event.target.playVideo();
+		}
+    }
+</script>
+
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. 
+<ul>{id:'player1',height:'390',width:'640',videoId:'yBYVX8FNx5M'}
+	<li><div id="player"></div></li>
+	<li><div id="player2"></div></li>
+</ul>
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: '_3CdNay3Lzw',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+	  player.seekTo(58.0, true);
+	  event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+      setTimeout(loopVideo, 12000);
+      done = true;
+    }
+  }
+  function loopVideo() {
+	  setTimeout(loopVideo, 12000);
+	  player.seekTo(58.0, true);
+	  player.playVideo();
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>
+-->
+
+			</div>
+		</div>
+	</div>
+</div><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-48216100-1', 'danielpi.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+</html>
