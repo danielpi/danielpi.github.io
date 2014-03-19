@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title> Daniel Pink's Website</title>
+
+      <!-- Bootstrap core CSS -->
+      <link href="/css/bootstrap.css" rel="stylesheet">
+
+      <!-- Custom styles for this template -->
+      <link href="/css/starter-template.css" rel="stylesheet">
+
+      <!-- Just for debugging purposes. Don't actually copy this line! -->
+      <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+  </head>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">danielpi</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container">
+	<div class="starter-template">
+		<div id="home">
+			<h2>Easts Defensive Corners</h2>
+			<p class="meta">19 Mar 2014</p>
+			<div class="post">
+				<h1>Videos from last year of Easts defensive corner battery</h1>
+
+<p>Corner by Commercial that resulted in a goal. Straight flick from the top goes along the ground to the keepers stick side. Keeper gets a touch but it goes in.</p>
+<ul>
+	<li>For this corner three of the Easts defenders come a long way out. That will leave room in behind for us to get the best positions for rebounds.</li>
+	<li>Butterini is usually very solid on his stick side. I think he is distracted by the attempted deflection. He ends up trying to make the save with his foot and his stick.</li>
+</ul>
+<p><div id="player0"></div></p>
+
+<p>Corner by Kedron that resulted in a goal. Straight hit goes through the postie to score.</p>
+<ul>
+	<li>Good hit. Their postie didn't look comfortable playing at the ball at all.</li>
+</ul>
+<p><div id="player1"></div></p>
+
+<p>Corner by Bulimba that was saved. Hit straight from the top. Keeper saves lying down with his gloves. Rebound is missed by injector.</p>
+<ul>
+	<li>See how the keeper tries to deflect the rebound towards the right postie. If the injector had gotten his shoulder in front he likely would have earned another corner.</li>
+	<li>Alternatively if he had hung back a meter or two he could have pounced on the stick side postie as he tried to control the rebound. This is what I think you should do Andrew.</li>
+</ul>
+<p><div id="player2"></div></p>
+
+<p>Corner by Commercial that was saved. Bunt to L1 leading to a shot low to the keepers glove side. Rebound goes clear out to the attackers left side of the field.</p>
+<ul>
+	<li>From the looks of this the Easts sitck side postie will head out to Josh when we go one left. He is also a bit of a wimp as he is putting no pressure on the flicker at all. He is well outside the post.</li>
+	<li>Andrew look at where the rebound goes (which comes off the second runner not the keeper). If you stay out at the runners mark you will have a much greater chance of regathering these sort of rebounds. If the rebound goes elsewhere then you need to get into the post as you will be wide open.</li>
+	<li>Josh, this shows the trade off between flicking left or right. If you go left the keeper has a good site on the shot, if you go right there will be a keeper, postie and second runner all playing at it. There is no right answer. Just get them on target, some will go in and we will scrap for the rebounds.</li>
+</ul>
+<p><div id="player3"></div></p>
+
+
+<script>
+	var playerInfoList =  [{index:0,id:'player0',height:'390',width:'640',videoId:'HbfEvR3Nzdg',startTime:'270',duration:'17',url:'https://www.youtube.com/watch?v=HbfEvR3Nzdg'},
+{index:1,id:'player1',height:'390',width:'640',videoId:'cSnscifLyxo',startTime:'509',duration:'20',url:'https://www.youtube.com/watch?v=cSnscifLyxo'},
+{index:2,id:'player2',height:'390',width:'640',videoId:'_3CdNay3Lzw',startTime:'354',duration:'7',url:'https://www.youtube.com/watch?v=_3CdNay3Lzw'},
+{index:3,id:'player3',height:'390',width:'640',videoId:'HbfEvR3Nzdg',startTime:'28',duration:'8',url:'https://www.youtube.com/watch?v=HbfEvR3Nzdg'},
+];
+
+	var tag = document.createElement('script');
+	tag.src = "http://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	
+	var players = [];
+	function onYouTubeIframeAPIReady() {
+		if(typeof playerInfoList === 'undefined')
+			return; 
+		
+		//players[0] = createPlayer(playerInfoList[0]);
+		//players[1] = createPlayer(playerInfoList[1]);
+		for(var i = 0; i < playerInfoList.length;i++) {
+			players[i] = createPlayer(playerInfoList[i]);
+		}   
+	}
+	
+	function createPlayer(playerInfo) {
+		//setTimeout(function () { loopVideo(playerInfo); }, playerInfo.duration*1000);
+		return new YT.Player(playerInfo.id, {
+			height: playerInfo.height,
+			width: playerInfo.width,
+			videoId: playerInfo.videoId,
+			events: {'onReady': onPlayerReady,
+					 'onStateChange': onPlayerStateChange}
+		});
+	}
+
+	function onPlayerReady(event) {
+		//console.log(event.target.a.id);
+		var divId = event.target.a.id;
+		var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+		// console.log(result);
+		var start = result[0].startTime;
+		event.target.seekTo(start, true);
+		//event.target.playVideo();
+		event.target.pauseVideo();
+	}
+	
+    function onPlayerStateChange(event) {
+	  	if (event.data == YT.PlayerState.PLAYING) {
+			var divId = event.target.a.id;
+			var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+			var duration = result[0].duration;
+		  	setTimeout(function () { loopVideo(event); }, duration*1000);
+      	}
+    }
+	
+    function loopVideo(event) {
+		var divId = event.target.a.id;
+		var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+		var duration = result[0].duration;
+		var start = result[0].startTime;
+		if (event.data == YT.PlayerState.PLAYING) {
+  	  		setTimeout(function () { loopVideo(event); }, duration*1000);
+	  		event.target.seekTo(start, true);
+  	  		event.target.playVideo();
+		}
+    }
+</script>
+
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. 
+<ul>{id:'player1',height:'390',width:'640',videoId:'yBYVX8FNx5M'}
+	<li><div id="player"></div></li>
+	<li><div id="player2"></div></li>
+</ul>
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: '_3CdNay3Lzw',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+	  player.seekTo(58.0, true);
+	  event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+      setTimeout(loopVideo, 12000);
+      done = true;
+    }
+  }
+  function loopVideo() {
+	  setTimeout(loopVideo, 12000);
+	  player.seekTo(58.0, true);
+	  player.playVideo();
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>
+-->
+
+			</div>
+		</div>
+	</div>
+</div><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-48216100-1', 'danielpi.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+</html>
