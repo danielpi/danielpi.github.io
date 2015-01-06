@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title> Daniel Pink's Website</title>
+
+      <!-- Bootstrap core CSS -->
+      <link href="/css/bootstrap.css" rel="stylesheet">
+
+      <!-- Custom styles for this template -->
+      <link href="/css/starter-template.css" rel="stylesheet">
+
+      <!-- Just for debugging purposes. Don't actually copy this line! -->
+      <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+  </head>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">danielpi</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<div class="container">
+	<div class="starter-template">
+		<div id="home">
+			<h2>Speed and Deception Corners</h2>
+			<p class="meta">18 Jan 2014</p>
+			<div class="post">
+				<p>I want to start off with a pair of corners that work well together.</p>
+
+<h2>Speed</h2>
+<p>First up the straight flick from the top. The main strength of this corner is that it requires the least number of actions in order to get a shot on goal. Pushout, Trap, Shoot. This gives the defence the least time to prepare and gives the lowest number of opportunities for the attack to make a mistake. However it is also the corner that defences devote the most amount of effort to defend. The goalkeeper, postie and first runner set their positions so as to best defend the straight flick.</p>
+<p><div id="player2"></div></p>
+<p><div id="player3"></div></p>
+
+<h4>Deception</h4>
+<p>The complimentary corner is the layoff to L1. The main strength of this corner is that it looks identical to the straight flick up until the shot. This deception of the defence removes the first and second runners from the equation and also shifts the keeper to the left. It also gives the flicker more time and less pressure than when the shot is straight from the top of the circle. The key to this corner is that it must look identical to the straight flick. If the defence pick the layoff the flicker ends up being under a lot of pressure due to the time it takes to pass the ball from the trapper.</p>
+
+<div id="player1"></div>
+
+<p>These two corners feed off each other. If the defence know that a layoff is a threat they will hedge their bets leading to less pressure on the straight flick. Likewise if the defence are worried about the straight flick they will over commit leaving themselves vulnerable to being tricked by the layoff. Teams that can execute both corners reliably, quickly and accurately will find that they are more successfull than teams that only focus on one or the other of these two corners.</p>
+
+<h4>Hunting for a Rebound</h4>
+<p>Well executed corners are a sure fire means of getting a shot on goal. That is not their only benefit though. They also give the attack 5-6 seconds of time with a numerical advantage over the defence and the ball in the circle. In order to exploit this the attack needs to pay attention to the most common rebound and clearence lines. A goalkepper that is at their limit trying to save a shot doesn't have many options for where they can clear the ball. Rebounders that get to the right spot will get plenty of opportunities to score.</p>
+<div id="player4"></div>
+
+<h4>All corners are a team effort</h4>
+<p>The quality of a corner battery is set by the ability of the weakest link. If anyone doesn't do thier job properly then the chance of a goal is greatly diminished. This next video shows a pitstop by the Ferrari F1 team. A group of 20 engineers change 4 tyres in 2 seconds. That is over a second quicker than the mid-tier teams can manage. When you watch it note how calm and composed the whole process is. Nobody is putting in a special effort or rushing their task. They are all just doing their own jobs at the speed and timing that they have practiced.</p>
+<div id="player5"></div>
+
+<p>To give you an idea of what it takes to perfect a pitstop like the f1 teams do each of the teams does over 70 pitstop practices per race weekend. They also have practice rigs back at the factory so that the engineers can practice without the real car. Lots of repetition.</p>
+
+<script>
+	var playerInfoList =  [{index:0,id:'player0',height:'390',width:'640',videoId:'_3CdNay3Lzw',startTime:'378',duration:'6',url:'https://www.youtube.com/watch?v=_3CdNay3Lzw'},
+	{index:1,id:'player1',height:'390',width:'640',videoId:'_Osl8HeUf4w',startTime:'378',duration:'16',url:'http://www.youtube.com/watch?v=_Osl8HeUf4w'}, {index:2,id:'player2',height:'390',width:'640',videoId:'K8F2l7ldOTg',startTime:'15',duration:'20',url:'http://www.youtube.com/watch?v=K8F2l7ldOTg'},
+	{index:3,id:'player3',height:'390',width:'640',videoId:'K8F2l7ldOTg',startTime:'214',duration:'20',url:'http://www.youtube.com/watch?v=K8F2l7ldOTg'},
+	{index:4,id:'player4',height:'390',width:'640',videoId:'HTH3HSqdDBA',startTime:'65',duration:'13',url:'https://www.youtube.com/watch?v=HTH3HSqdDBA'},
+	{index:5,id:'player5',height:'390',width:'640',videoId:'aHSUp7msCIE',startTime:'33',duration:'8',url:'http://www.youtube.com/watch?v=aHSUp7msCIE'}];
+
+	var tag = document.createElement('script');
+	tag.src = "http://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	
+	var players = [];
+	function onYouTubeIframeAPIReady() {
+		if(typeof playerInfoList === 'undefined')
+			return; 
+		
+		//players[0] = createPlayer(playerInfoList[0]);
+		//players[1] = createPlayer(playerInfoList[1]);
+		for(var i = 0; i < playerInfoList.length;i++) {
+			players[i] = createPlayer(playerInfoList[i]);
+		}   
+	}
+	
+	function createPlayer(playerInfo) {
+		//setTimeout(function () { loopVideo(playerInfo); }, playerInfo.duration*1000);
+		return new YT.Player(playerInfo.id, {
+			height: playerInfo.height,
+			width: playerInfo.width,
+			videoId: playerInfo.videoId,
+			events: {'onReady': onPlayerReady,
+					 'onStateChange': onPlayerStateChange}
+		});
+	}
+
+	function onPlayerReady(event) {
+		//console.log(event.target.a.id);
+		var divId = event.target.a.id;
+		var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+		// console.log(result);
+		var start = result[0].startTime;
+		event.target.seekTo(start, true);
+		//event.target.playVideo();
+		event.target.pauseVideo();
+	}
+	
+    function onPlayerStateChange(event) {
+	  	if (event.data == YT.PlayerState.PLAYING) {
+			var divId = event.target.a.id;
+			var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+			var duration = result[0].duration;
+		  	setTimeout(function () { loopVideo(event); }, duration*1000);
+      	}
+    }
+	
+    function loopVideo(event) {
+		var divId = event.target.a.id;
+		var result = $.grep(playerInfoList, function(e){ return e.id == divId; });
+		var duration = result[0].duration;
+		var start = result[0].startTime;
+		if (event.data == YT.PlayerState.PLAYING) {
+  	  		setTimeout(function () { loopVideo(event); }, duration*1000);
+	  		event.target.seekTo(start, true);
+  	  		event.target.playVideo();
+		}
+    }
+</script>
+
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. 
+<ul>{id:'player1',height:'390',width:'640',videoId:'yBYVX8FNx5M'}
+	<li><div id="player"></div></li>
+	<li><div id="player2"></div></li>
+</ul>
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: '_3CdNay3Lzw',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+	  player.seekTo(58.0, true);
+	  event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+      setTimeout(loopVideo, 12000);
+      done = true;
+    }
+  }
+  function loopVideo() {
+	  setTimeout(loopVideo, 12000);
+	  player.seekTo(58.0, true);
+	  player.playVideo();
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>
+-->
+
+			</div>
+		</div>
+	</div>
+</div><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-48216100-1', 'danielpi.github.io');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+</html>
